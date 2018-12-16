@@ -24,10 +24,14 @@ How to get your code installed on a computer for _development_ first and operati
 ## Yes, just use pip.
 
 It's already installed in python 2.7.9+ and 3.4+
+
+```shell
+$ python -m pip
+```
 If you _don't_ have it you should get it
 
-```
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+```shell
+$ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 ```
 
 ---
@@ -36,8 +40,8 @@ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 
 If you don't have a pip binary handy you can run pip as a module.
 
-```
-python -m pip
+```shell
+$ python -m pip
 ```
 
 For the rest of this presentation, if you see `pip` replace it with `python -m pip`.
@@ -46,8 +50,8 @@ For the rest of this presentation, if you see `pip` replace it with `python -m p
 
 # System-wide Install
 
-```
-pip install <package>
+```shell
+$ pip install <package>
 ```
 
 * requires superuser privileges
@@ -58,8 +62,8 @@ pip install <package>
 
 # User install
 
-```
-pip install -U <package>
+```shell
+$ pip install --user <package>
 ```
 
 * installs into a user-specific location
@@ -84,47 +88,47 @@ pip install -U <package>
 
 # Virtualenv
 
-```virtualenv [options] <path>```
-
+```shell
+$ virtualenv [options] <path>
 ```
-~/t/p/virtualenv_example $ virtualenv .
+
+```shell
+$ virtualenv .
 Using base prefix '/Users/jjaggars/.pyenv/versions/3.7.1'
 New python executable in /Users/jjaggars/talks/pypkg/virtualenv_example/bin/python3.7
 Also creating executable in /Users/jjaggars/talks/pypkg/virtualenv_example/bin/python
 Installing setuptools, pip, wheel...
 done.
-~/t/p/virtualenv_example $ ls
+$ ls
 bin     include lib
-~/t/p/virtualenv_example $ . bin/activate.fish
-(virtualenv_example) ~/t/p/virtualenv_example $
+$ source bin/activate
 ```
 
 ---
 
 # venv
 
-```python -m venv <path>```
-
+```shell
+$ python -m venv <path>
 ```
-~/t/p/venv_example $ python -m venv .
-~/t/p/venv_example $ ls
+
+```shell
+$ python -m venv .
+$ ls
 bin        include    lib        pyvenv.cfg
-~/t/p/venv_example $ . bin/activate.fish
-(venv_example) ~/t/p/venv_example $
+$ source bin/activate
 ```
 
 ---
 
 # pipenv
 
-```
-~/t/p/pipenv_example $ pipenv install
-Creating a virtualenv for this project…
+```shell
+$ pipenv install
+Creating a virtualenv for this projectâ€¦
 Pipfile: /Users/jjaggars/talks/pypkg/pipenv_example/Pipfile
 ... [snip] ...
-To activate this project's virtualenv, run pipenv shell.
-Alternatively, run a command inside the virtualenv with pipenv run.
-~/t/p/pipenv_example $ ls
+$ ls
 Pipfile      Pipfile.lock
 ```
 
@@ -133,20 +137,21 @@ Pipfile      Pipfile.lock
 # poetry
 
 The recommended install is kind of weird...
-```
-curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
+```shell
+$ curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
 ```
 You can install it via pip too.
 
-```
-pip install --user poetry
+```shell
+$ pip install --user poetry
 ```
 
 Using poetry is simple though.
-```
-~/t/p/poetry_example $ poetry new .
+
+```shell
+$ poetry new .
 Created package poetry_example in .
-~/t/p/poetry_example $ ls
+$ ls
 README.rst     poetry_example pyproject.toml tests
 ```
 
@@ -156,16 +161,15 @@ README.rst     poetry_example pyproject.toml tests
 
 The [installer](https://www.anaconda.com/download/) is huge.  
 
-```
-jhj:conda_example jjaggars$ conda create --name conda_example
+```shell
+$ conda create --name conda_example
 Solving environment: done
 ## Package Plan ##
   environment location: /usr/local/miniconda3/envs/conda_example
 Proceed ([y]/n)? y
 ... [snip] ...
-jhj:conda_example jjaggars$ . /usr/local/miniconda3/etc/profile.d/conda.sh
-jhj:conda_example jjaggars$ conda activate conda_example
-(conda_example) jhj:conda_example jjaggars$
+$ . /usr/local/miniconda3/etc/profile.d/conda.sh
+$ conda activate conda_example
 ```
 
 ---
@@ -176,26 +180,26 @@ jhj:conda_example jjaggars$ conda activate conda_example
 
 #### pip
 
-```
-pip install <dep>
+```shell
+$ pip install <dep>
 ```
 
 #### pipenv
 
-```
-pipenv install <dep>
+```shell
+$ pipenv install <dep>
 ```
 
 #### poetry
 
-```
-poetry add <dep>
+```shell
+$ poetry add <dep>
 ```
 
 #### conda
 
-```
-conda install <dep>
+```shell
+$ conda install <dep>
 ```
 
 ---
@@ -232,12 +236,12 @@ Kenneth Reitz has a [good guide](https://github.com/kennethreitz/setup.py)
 
 # requirements.txt
 
-```
-(venv_example) ~/t/p/venv_example $ pip install requests
+```shell
+$ pip install requests
 Collecting requests
 ... [snip] ...
-(venv_example) ~/t/p/venv_example $ pip freeze > requirements.txt
-(venv_example) ~/t/p/venv_example $ cat requirements.txt
+$ pip freeze > requirements.txt
+$ cat requirements.txt
 certifi==2018.11.29
 chardet==3.0.4
 idna==2.8
@@ -245,19 +249,19 @@ requests==2.21.0
 urllib3==1.24.1
 ```
 
-```
-pip install -r requirements.txt
+```shell
+$ pip install -r requirements.txt
 ```
 
 ---
 
 # Pipfile
 
+```shell
+$ pipenv install requests
 ```
-~/t/p/pipenv_example $ pipenv install requests
-```
+
 ```toml
-~/t/p/pipenv_example $ cat Pipfile
 [[source]]
 name = "pypi"
 url = "https://pypi.org/simple"
@@ -332,4 +336,30 @@ version = "1.2.1"
 [metadata.hashes]
 atomicwrites = ["0312ad34fcad8fac3704d441f7b317e50af620823353ec657a53e981f92920c0", "ec9ae8adaae229e4f8446952d204a3e4b5fdd2d099f9be3aaf556120135fb3ee"]
 ```
+---
+
+# What do I do?
+
+---
+
+# I just use pip+venv or pipenv.
+
+---
+
+# pip + venv is simple for library development
+
+You can create multiple virtual environments for the same project easily.
+
+```
+$ python -m venv 3.7.1
+$ pyenv local 3.6.5
+$ python -m venv 3.6.5
+$ ls
+3.6.5 3.7.1
+```
+When working on a particular version just activate the proper venv.
+
+---
+
+# pipenv is nice for application development
 
