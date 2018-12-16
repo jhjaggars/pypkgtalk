@@ -21,9 +21,9 @@ This presentation is *not* comprehensive.
 
 ---
 
-# But wait! I need an installer!
+### But wait! I need an installer!
 
-## Yes, just use pip.
+#### Yes, just use pip.
 
 It's already installed in python 2.7.9+ and 3.4+
 
@@ -39,7 +39,7 @@ $ python get-pip.py
 
 ---
 
-# Windows
+### Windows
 
 If you don't have a pip binary handy you can run pip as a module.
 
@@ -51,7 +51,7 @@ For the rest of this presentation, if you see `pip` replace it with `python -m p
 
 ---
 
-# System-wide Install
+### System-wide Install
 
 ```shell
 $ pip install <package>
@@ -63,7 +63,7 @@ $ pip install <package>
 
 ---
 
-# User install
+### User install
 
 ```shell
 $ pip install --user <package>
@@ -90,7 +90,7 @@ $ pip install --user <package>
 
 ---
 
-# Virtualenv
+### virtualenv
 
 ```shell
 $ virtualenv [options] <path>
@@ -110,7 +110,7 @@ $ source bin/activate
 
 ---
 
-# venv
+### venv
 
 ```shell
 $ python -m venv <path>
@@ -125,11 +125,11 @@ $ source bin/activate
 
 ---
 
-# pipenv
+### pipenv
 
 ```shell
 $ pipenv install
-Creating a virtualenv for this projectâ€¦
+Creating a virtualenv for this projectÃ¢â‚¬Â¦
 Pipfile: /Users/jjaggars/talks/pypkg/pipenv_example/Pipfile
 ... [snip] ...
 $ ls
@@ -138,7 +138,7 @@ Pipfile      Pipfile.lock
 
 ---
 
-# poetry
+### poetry
 
 The recommended install is kind of weird...
 ```shell
@@ -161,7 +161,7 @@ README.rst     poetry_example pyproject.toml tests
 
 ---
 
-# conda
+### conda
 
 The [installer](https://www.anaconda.com/download/) is huge.  
 
@@ -182,25 +182,25 @@ $ conda activate conda_example
 
 ---
 
-#### pip
+###### pip
 
 ```shell
 $ pip install <dep>
 ```
 
-#### pipenv
+###### pipenv
 
 ```shell
 $ pipenv install <dep>
 ```
 
-#### poetry
+###### poetry
 
 ```shell
 $ poetry add <dep>
 ```
 
-#### conda
+###### conda
 
 ```shell
 $ conda install <dep>
@@ -208,7 +208,7 @@ $ conda install <dep>
 
 ---
 
-# Files	
+#### Files	
 * pip
 	- setup.py
 	- requirements.txt
@@ -219,7 +219,7 @@ $ conda install <dep>
 
 ---
 
-# setup.py
+### setup.py
 
 ```
 from setuptools import find_packages, setup
@@ -238,7 +238,7 @@ Kenneth Reitz has a [good guide](https://github.com/kennethreitz/setup.py)
 
 ---
 
-# requirements.txt
+### requirements.txt
 
 ```shell
 $ pip install requests
@@ -259,7 +259,7 @@ $ pip install -r requirements.txt
 
 ---
 
-# Pipfile
+### Pipfile
 
 ```shell
 $ pipenv install requests
@@ -283,7 +283,7 @@ python_version = "3.7"
 
 ---
 
-# Pipfile.lock
+### Pipfile.lock
 Contains hashes of the installed dependencies.
 ```json
 {
@@ -303,7 +303,7 @@ Contains hashes of the installed dependencies.
 
 ---
 
-# pyproject.toml
+### pyproject.toml
 
 ```toml
 [tool.poetry]
@@ -326,7 +326,7 @@ build-backend = "poetry.masonry.api"
 
 ---
 
-# poetry.lock
+### poetry.lock
 Serves the same purpose as Pipfile.lock
 ```toml
 [[package]]
@@ -347,11 +347,11 @@ atomicwrites = ["0312ad34fcad8fac3704d441f7b317e50af620823353ec657a53e981f92920c
 ---
 
 # I just use pip+venv or pipenv.
-###### I'm investigating poetry more and more though.
+###### I'm investigating poetry, hatch, and flit though.
 
 ---
 
-# pip + venv is simple for library development
+### pip + venv is simple for library development
 
 You can create multiple virtual environments for the same project easily.
 
@@ -366,7 +366,7 @@ When working on a particular version just activate the proper venv.
 
 ---
 
-# pipenv is nice for application development
+#### pipenv is nice for application development
 
 ```shell
 $ pipenv shell
@@ -378,7 +378,7 @@ You can use multiple virtual environments with pipenv, but you still only have o
 
 ---
 
-# poetry
+### poetry
 
 Poetry is nice for application development too.
 
@@ -392,7 +392,7 @@ Builds source and wheel distributions and pushes them to PyPI.
 
 ---
 
-# Development-only Dependencies
+### Development-only Dependencies
 
 Pip doesn't keep up with the lifecycle of dependencies
 ```shell
@@ -411,7 +411,7 @@ $ poetry add -D <dep>
 
 ---
 
-# distutils and setuptools
+### distutils and setuptools
 
 You can specify _extras_ in your `setup.py` as a way of managing the lifecycle of your dependencies.  This is handy for complex setups.
 ```python
@@ -430,7 +430,7 @@ $ pip install .[develop]
 
 ---
 
-# Multiple *local* projects
+### Multiple *local* projects
 
 If you have a distutils/setuptools project you can install it into a virtual environment with pip.
 
