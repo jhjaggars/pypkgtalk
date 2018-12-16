@@ -12,7 +12,7 @@ This presentation is *not* comprehensive.
 
 ---
 
-# Options
+# (Some) Options
 
 1. System-wide install
 2. User install
@@ -75,13 +75,13 @@ $ pip install --user <package>
 
 ---
 
-# Virtual Environments
+### Virtual Environments
 
 #### A way to isolate installed packages
 
 ---
 
-# Why Virtual Environments?
+### Why Virtual Environments?
 
 1. Multiple versions of the same package installed on a single system
 2. Avoid user and system-installed packages
