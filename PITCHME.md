@@ -1,12 +1,14 @@
 <!-- $theme: gaia -->
 
-# Python Packaging: A Survey
+# Python Packaging: A Brief Survey
 
 ---
 
 # Scope
 
 How to get your code installed on a computer for _development_ first and operation second.
+
+This presentation is *not* comprehensive.
 
 ---
 
@@ -32,6 +34,7 @@ If you _don't_ have it you should get it
 
 ```shell
 $ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+$ python get-pip.py
 ```
 
 ---
@@ -68,6 +71,7 @@ $ pip install --user <package>
 
 * installs into a user-specific location
 * handy for installing tools you want to use on multiple projects
+* [pipsi](https://github.com/mitsuhiko/pipsi) is even better for that though.
 
 ---
 
@@ -442,5 +446,17 @@ $ pipenv install -e <local/path>
 
 ---
 
-# Questions & Thank You
-##### https://gitpitch.com/jhjaggars/pypkgtalk
+# Questions
+
+---
+
+# Thank You
+
+* [Slides](https://gitpitch.com/jhjaggars/pypkgtalk)
+* [Hitchhiker's Guide to Packaging](https://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/)
+* [Pipenv](https://pipenv.readthedocs.io/en/latest/)
+* [Poetry](http://poetry.eustace.io/)
+* [Flit](https://flit.readthedocs.io/en/latest/)
+* [Hatch](https://github.com/ofek/hatch)
+* [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/)
+* [setuptools](https://setuptools.readthedocs.io/en/latest/)
