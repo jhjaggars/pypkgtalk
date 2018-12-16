@@ -21,7 +21,7 @@ This presentation is *not* comprehensive.
 
 ---
 
-### But wait! I need an installer!
+### But wait‽ I need an installer!
 
 ---
 
@@ -32,7 +32,7 @@ It's already installed in python 2.7.9+ and 3.4+
 ```shell
 $ python -m pip
 ```
-If you _don't_ have it you should get it
+If you _don't_ have it, get it.
 
 ```shell
 $ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
