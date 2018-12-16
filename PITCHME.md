@@ -26,7 +26,9 @@ How to get your code installed on a computer for _development_ first and operati
 It's already installed in python 2.7.9+ and 3.4+
 If you _don't_ have it you should get it
 
-`curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py`
+```
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+```
 
 ---
 
@@ -34,7 +36,9 @@ If you _don't_ have it you should get it
 
 If you don't have a pip binary handy you can run pip as a module.
 
-`python -m pip`
+```
+python -m pip
+```
 
 For the rest of this presentation, if you see `pip` replace it with `python -m pip`.
 
@@ -150,7 +154,7 @@ README.rst     poetry_example pyproject.toml tests
 
 # conda
 
-The installer is huge.  https://www.anaconda.com/download/
+The [installer](https://www.anaconda.com/download/) is huge.  
 
 ```
 jhj:conda_example jjaggars$ conda create --name conda_example
@@ -171,13 +175,28 @@ jhj:conda_example jjaggars$ conda activate conda_example
 ---
 
 #### pip
-```pip install <dep>```
+
+```
+pip install <dep>
+```
+
 #### pipenv
-```pipenv install <dep>```
+
+```
+pipenv install <dep>
+```
+
 #### poetry
-```poetry add <dep>```
+
+```
+poetry add <dep>
+```
+
 #### conda
-```conda install <dep>```
+
+```
+conda install <dep>
+```
 
 ---
 
@@ -193,6 +212,7 @@ jhj:conda_example jjaggars$ conda activate conda_example
 ---
 
 # setup.py
+
 ```
 from setuptools import find_packages, setup
 
@@ -211,6 +231,7 @@ Kenneth Reitz has a [good guide](https://github.com/kennethreitz/setup.py)
 ---
 
 # requirements.txt
+
 ```
 (venv_example) ~/t/p/venv_example $ pip install requests
 Collecting requests
