@@ -343,6 +343,7 @@ atomicwrites = ["0312ad34fcad8fac3704d441f7b317e50af620823353ec657a53e981f92920c
 ---
 
 # I just use pip+venv or pipenv.
+###### I'm investigating poetry more and more though.
 
 ---
 
@@ -350,7 +351,7 @@ atomicwrites = ["0312ad34fcad8fac3704d441f7b317e50af620823353ec657a53e981f92920c
 
 You can create multiple virtual environments for the same project easily.
 
-```
+```shell
 $ python -m venv 3.7.1
 $ pyenv local 3.6.5
 $ python -m venv 3.6.5
@@ -363,3 +364,83 @@ When working on a particular version just activate the proper venv.
 
 # pipenv is nice for application development
 
+```shell
+$ pipenv shell
+$ pipenv open <module>
+$ pipenv check
+```
+
+You can use multiple virtual environments with pipenv, but you still only have one Pipfile and Pipfile.lock
+
+---
+
+# poetry
+
+Poetry is nice for application development too.
+
+Poetry makes publishing to pypi really easy.
+
+```shell
+$ poetry publish --build
+```
+
+Builds source and wheel distributions and pushes them to PyPI.
+
+---
+
+# Development-only Dependencies
+
+Pip doesn't keep up with the lifecycle of dependencies
+```shell
+$ pip install -r development.txt
+```
+
+Pipenv and poetry do
+
+```shell
+$ pipenv install --dev <dep>
+```
+
+```shell
+$ poetry add -D <dep>
+```
+
+---
+
+# distutils and setuptools
+
+You can specify _extras_ in your `setup.py` as a way of managing the lifecycle of your dependencies.  This is handy for complex setups.
+```python
+setup(
+    extras_require={
+        "develop": [
+            "pytest>=3.0.0",
+        ]
+    }
+)
+```
+
+```shell
+$ pip install .[develop]
+```
+
+---
+
+# Multiple *local* projects
+
+If you have a distutils/setuptools project you can install it into a virtual environment with pip.
+
+```shell
+$ pip install -e <local/path>
+```
+The `-e` argument makes a link rather than copying the dependency in.  This is very useful if you want to develop on the dependency.
+
+This works with pipenv too.
+```shell
+$ pipenv install -e <local/path>
+```
+
+---
+
+# Questions & Thank You
+##### https://gitpitch.com/jhjaggars/pypkgtalk
