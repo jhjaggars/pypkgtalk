@@ -23,7 +23,9 @@ This presentation is *not* comprehensive.
 
 ### But wait! I need an installer!
 
-#### Yes, just use pip.
+---
+
+### Yes, just use pip.
 
 It's already installed in python 2.7.9+ and 3.4+
 
